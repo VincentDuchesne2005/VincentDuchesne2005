@@ -65,7 +65,8 @@ class WarGame:
         self.game_deck = Deck()
         self.players = [Player(f"Player {i + 1}") for i in range(num_player)]
         self.deal_cards()
-
+        
+    #Separate the cards in two 26 cards deck for the players
     def deal_cards(self):
         mid = len(self.game_deck.deck) // 2
         self.players[0].player_deck = self.game_deck.deck[:mid]
@@ -74,6 +75,7 @@ class WarGame:
         for player in self.players:
             player.player_deck_shuffle()
 
+    #Starts the game
     def start_game(self):
         print("Game started")
 
@@ -81,6 +83,7 @@ class WarGame:
             print(player.get_number())
             player.print_deck()
 
+    #Continuously checks if a player has won 
         while self.check_win():
             self.play_round()
 
